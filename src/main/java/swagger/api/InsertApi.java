@@ -1,4 +1,4 @@
-package api;
+package swagger.api;
 
 
 import io.swagger.annotations.*;
@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 
 @Api(value = "/databases", description = "gets some data from a servlet")
 public class InsertApi extends HttpServlet {
-    @ApiOperation(httpMethod = "GET", value = "ResoXXXXXXXXXXXxer", response = MessageData.class, nickname = "insert")
+    @ApiOperation(httpMethod = "GET", value = "的ResoXXXXXXXXXXXxer", response = MessageData.class, nickname = "insert")
     @ApiResponses({@ApiResponse(code = 400, message = "Invalid input", response = util.ApiResponse
             .class)})
     @ApiImplicitParams({

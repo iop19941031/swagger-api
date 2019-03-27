@@ -1,4 +1,4 @@
-package api;
+package swagger.api;
 
 import io.swagger.annotations.*;
 
