@@ -29,7 +29,7 @@ public class ContentTypeFilter implements Filter {
     System.out.println("Content-Type过滤器");
 
     HttpServletResponse res = (HttpServletResponse) response;
-    res.addHeader("Content-Type", "application/json");
+//    res.addHeader("Content-Type", "application/json");
     chain.doFilter(request, response);
   }
 

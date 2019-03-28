@@ -24,11 +24,15 @@ public class Select {
       e.printStackTrace();
     } finally {
       try {
-        if (ps != null) {
-          ps.close();
-        }
         if (conn != null) {
           conn.close();
+        }
+      } catch (SQLException e) {
+        e.printStackTrace();
+      }
+      try {
+        if (ps != null) {
+          ps.close();
         }
       } catch (SQLException e) {
         e.printStackTrace();
