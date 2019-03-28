@@ -11,15 +11,14 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(urlPatterns = "/*")
-public class HeaderFilter implements Filter {
+public class ContentTypeFilter implements Filter {
 
   public void init(FilterConfig filterConfig) throws ServletException {
 
   }
 
-
   /**
-   * 设置HTTP Header.
+   * 设置HTTP Content-Type.
    *
    * @param request 请求.
    * @param response 响应
@@ -27,12 +26,10 @@ public class HeaderFilter implements Filter {
    */
   public void doFilter(ServletRequest request, ServletResponse response,
       FilterChain chain) throws IOException, ServletException {
-    System.out.println("HTTP Header过滤器");
+    System.out.println("Content-Type过滤器");
 
-    final HttpServletResponse res = (HttpServletResponse) response;
-    res.addHeader("Access-Control-Allow-Origin:", "*");
-    res.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-    res.addHeader("Access-Control-Allow-Headers", "Content-Type");
+    HttpServletResponse res = (HttpServletResponse) response;
+    res.addHeader("Content-Type", "application/json");
     chain.doFilter(request, response);
   }
 
