@@ -9,8 +9,6 @@ import io.swagger.annotations.ApiResponses;
 import io.swagger.util.Json;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.logging.Logger;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,11 +28,11 @@ public class Show extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
     String result = null;
-    String content = null;
+    int id = 0;
     try {
-      content = request.getParameter("content");
+      id = Integer.parseInt(request.getParameter("id"));
       MessageData md = new MessageData();
-      md.setContent(content);
+      md.setId(id);
       result = Json.pretty(md);
     } catch (Exception ex) {
       result = Json.pretty(new util.ApiResponse(400, ex.getMessage()));

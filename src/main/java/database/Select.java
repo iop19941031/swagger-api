@@ -4,21 +4,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import util.MessageData;
 
 public class Select {
-  public static void select(int id) {
+  public static MessageData select(int id) {
     final Connection conn = DB.getConnection();
     PreparedStatement ps = null;
+    MessageData md = new MessageData();
     try {
       ps = conn.prepareStatement("select * from test where id = ?");
       ps.setInt(1, id);
       ResultSet rs =  ps.executeQuery();
       while (rs.next()) {
-        System.out.println(rs.getInt(1));
-        System.out.println(rs.getString(2));
-        System.out.println(rs.getString(3));
+        md.setId(rs.getInt(1));
+        md.setContent(rs.getString(2));
+        md.setTime(rs.getString(3));
       }
-      System.out.println(111111111);
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
@@ -33,9 +34,10 @@ public class Select {
         e.printStackTrace();
       }
     }
+    return md;
   }
 
   public static void main(String[] args) {
-    Select.select(10);
+    System.out.println(Select.select(10));
   }
 }
