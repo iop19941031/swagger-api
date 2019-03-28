@@ -20,7 +20,7 @@ import io.swagger.annotations.Tag;
     consumes = {"application/json", "application/xml"},
     produces = {"application/json", "application/xml"},
     schemes = {SwaggerDefinition.Scheme.HTTP, SwaggerDefinition.Scheme.HTTPS},
-    tags = {@Tag(name = "users", description = "xia'gao")}
+    tags = {@Tag(name = "users", description = "测试")}
 )
 @ApiResponses({@ApiResponse(code = 400, message = "Invalid input", response = util.ApiResponse
     .class)})

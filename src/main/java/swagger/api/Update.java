@@ -17,9 +17,9 @@ import util.MessageData;
 
 
 @Api(value = "/databases", description = "gets some data from a servlet")
-public class A extends HttpServlet {
+public class Update extends HttpServlet {
 
-  @ApiOperation(httpMethod = "PUT", value = "更新",
+  @ApiOperation(httpMethod = "POST", value = "更新",
       response = MessageData.class, nickname = "update")
   @ApiResponses({@ApiResponse(code = 400, message = "无效输入", response = util.ApiResponse
       .class)})
@@ -31,7 +31,7 @@ public class A extends HttpServlet {
   })
 
   @Override
-  public void doPut(HttpServletRequest request, HttpServletResponse response)
+  public void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
     String result;
